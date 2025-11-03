@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import logoDark from "@/assets/logo-dark.jpg";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -8,7 +7,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-luxury-black overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center bg-background overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 gold-shimmer opacity-20" />
       
@@ -17,16 +16,15 @@ const Hero = () => {
       
       {/* Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-        <div className="animate-fade-in-up">
-          <img 
-            src={logoDark} 
-            alt="Chefonic - Beyond Catering, Into Luxury" 
-            className="w-full max-w-md mx-auto mb-8 animate-glow"
-          />
+        <div className="animate-fade-in-up space-y-6">
+          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-playfair text-accent font-bold tracking-wider animate-glow">
+            CHEFONIC
+          </h1>
+          <div className="h-1 w-32 mx-auto gradient-gold animate-shimmer" />
         </div>
         
         <div className="space-y-8 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-          <p className="text-luxury-ivory text-lg sm:text-xl md:text-2xl font-light tracking-wider">
+          <p className="text-foreground text-lg sm:text-xl md:text-2xl font-light tracking-wider">
             Where Culinary Artistry Meets Live Performance
           </p>
           
@@ -43,7 +41,7 @@ const Hero = () => {
               variant="ghost" 
               size="xl"
               onClick={() => scrollToSection('stations')}
-              className="w-full sm:w-auto text-luxury-ivory hover:text-accent border border-luxury-ivory/20 hover:border-accent"
+              className="w-full sm:w-auto text-foreground hover:text-accent border border-border hover:border-accent"
             >
               Explore Our Stations
             </Button>
