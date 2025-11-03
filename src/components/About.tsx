@@ -7,7 +7,7 @@ const About = () => {
             The Chefonic Experience
           </h2>
           
-          <div className="space-y-6 text-luxury-ivory/90 text-base sm:text-lg leading-relaxed animate-fade-in-up">
+          <div className="space-y-6 text-luxury-ivory text-base sm:text-lg leading-relaxed animate-fade-in-up">
             <p>
               At <span className="text-accent font-semibold">Chefonic</span>, we go beyond catering. 
               Every menu, every plate, every live station is a curated performance blending aroma, 
