@@ -1,16 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
+import logo from "@/assets/logo-light.png";
 
 const Header = () => {
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') as 'dark' | 'light' || 'dark';
-    setTheme(savedTheme);
-    document.documentElement.classList.toggle('light', savedTheme === 'light');
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,13 +12,6 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    document.documentElement.classList.toggle('light', newTheme === 'light');
-  };
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -41,13 +27,16 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <div className="flex items-center gap-2">
-            <span className="text-2xl font-playfair text-accent font-bold tracking-wider">
-              CHEFONIC
-            </span>
-            <span className="hidden sm:inline text-sm text-muted-foreground font-light">
-              Beyond Catering, Into Luxury
-            </span>
+          <div className="flex items-center gap-4">
+            <img src={logo} alt="Chefonic Logo" className="h-12 w-auto" />
+            <div className="flex flex-col">
+              <span className="text-2xl font-playfair text-accent font-bold tracking-wider leading-tight">
+                CHEFONIC
+              </span>
+              <span className="text-xs text-muted-foreground font-light">
+                Beyond Catering, Into Luxury
+              </span>
+            </div>
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -77,28 +66,14 @@ const Header = () => {
             </button>
           </nav>
 
-          <div className="flex items-center gap-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              className="rounded-full hover:bg-accent/10"
-            >
-              {theme === 'dark' ? (
-                <Sun className="h-5 w-5 text-accent" />
-              ) : (
-                <Moon className="h-5 w-5 text-accent" />
-              )}
-            </Button>
-            <Button 
-              variant="hero" 
-              size="default"
-              onClick={() => scrollToSection('contact')}
-              className="hidden sm:flex"
-            >
-              Book Now
-            </Button>
-          </div>
+          <Button 
+            variant="hero" 
+            size="default"
+            onClick={() => scrollToSection('contact')}
+            className="hidden sm:flex"
+          >
+            Book Now
+          </Button>
         </div>
       </div>
     </header>
