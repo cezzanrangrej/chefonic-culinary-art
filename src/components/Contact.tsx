@@ -5,6 +5,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { Phone, Mail, Instagram } from "lucide-react";
 import logoLight from "@/assets/logo-light.png";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,11 +15,43 @@ const Contact = () => {
     eventType: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Thank you! We'll be in touch soon to craft your perfect celebration.");
-    setFormData({ name: "", email: "", phone: "", eventType: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      // EmailJS configuration
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_chefonic';
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_chefonic';
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
+
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          event_type: formData.eventType,
+          message: formData.message,
+          to_email: 'atchefonic@gmail.com'
+        },
+        publicKey
+      );
+
+      if (result.status === 200) {
+        toast.success("Thank you! We'll contact you soon.");
+        setFormData({ name: "", email: "", phone: "", eventType: "", message: "" });
+      }
+    } catch (error) {
+      console.error('Email send error:', error);
+      toast.error("Something went wrong. Please try calling us directly at +91 98980 55388");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -121,9 +154,10 @@ const Contact = () => {
               type="submit" 
               variant="luxury" 
               size="xl"
-              className="w-full sm:w-auto shadow-gold-glow text-sm sm:text-base px-6 sm:px-8 py-5 sm:py-6"
+              disabled={isSubmitting}
+              className="w-full sm:w-auto shadow-gold-glow text-sm sm:text-base px-6 sm:px-8 py-5 sm:py-6 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Plan My Event
+              {isSubmitting ? "Sending..." : "Plan My Event"}
             </Button>
           </form>
 
@@ -146,9 +180,9 @@ const Contact = () => {
                   </svg>
                   <span>WhatsApp</span>
                 </a>
-                <a href="mailto:info@chefonic.com" className="flex items-center justify-center sm:justify-start gap-2 hover:text-luxury-gold transition-smooth font-light tracking-wide text-sm sm:text-base">
+                <a href="mailto:atchefonic@gmail.com" className="flex items-center justify-center sm:justify-start gap-2 hover:text-luxury-gold transition-smooth font-light tracking-wide text-sm sm:text-base">
                   <Mail size={18} className="sm:w-5 sm:h-5 text-luxury-gold shrink-0" />
-                  <span>info@chefonic.com</span>
+                  <span>atchefonic@gmail.com</span>
                 </a>
                 <a href="https://www.instagram.com/atchefonic?igsh=aWM1bzNsMWV5Zzg1&utm_source=qr" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center sm:justify-start gap-2 hover:text-luxury-gold transition-smooth font-light tracking-wide text-sm sm:text-base">
                   <Instagram size={18} className="sm:w-5 sm:h-5 text-luxury-gold shrink-0" />
