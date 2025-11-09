@@ -97,10 +97,14 @@ const LiveStations = () => {
           <p className="text-lg xs:text-xl sm:text-2xl text-luxury-gold font-playfair animate-fade-in tracking-wide px-4">
             Where Dining Becomes Theatre
           </p>
-          <p className="text-sm xs:text-base text-luxury-charcoal/70 max-w-2xl mx-auto animate-fade-in-up font-light tracking-wide leading-relaxed px-4">
-            Interactive culinary theatres and artful presentations that transform your event 
-            into an unforgettable gastronomic experience
-          </p>
+          <div className="text-sm xs:text-base text-luxury-charcoal/70 max-w-3xl mx-auto animate-fade-in-up font-light tracking-wide leading-relaxed px-4 space-y-3 sm:space-y-4">
+            <p>
+              At Chefonic, every live station is a stage, and every dish is a performance. Our chefs don't just cook — they create moments, transforming ingredients into art right before your guests' eyes.
+            </p>
+            <p>
+              From the sizzle of Asian grills to the finesse of molecular chaats and the charm of artisanal desserts, each experience is designed to engage the senses and spark delight. With signature styling, themed décor, and refined presentation, Chefonic turns dining into an immersive celebration — where food isn't just served, it's beautifully performed.
+            </p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">

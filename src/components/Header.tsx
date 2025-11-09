@@ -52,6 +52,12 @@ const Header = () => {
               About
             </button>
             <button 
+              onClick={() => scrollToSection('gallery')}
+              className="text-luxury-ivory hover:text-luxury-gold transition-smooth font-light tracking-wide text-sm xl:text-base"
+            >
+              Gallery
+            </button>
+            <button 
               onClick={() => scrollToSection('stations')}
               className="text-luxury-ivory hover:text-luxury-gold transition-smooth font-light tracking-wide text-sm xl:text-base"
             >
@@ -62,12 +68,6 @@ const Header = () => {
               className="text-luxury-ivory hover:text-luxury-gold transition-smooth font-light tracking-wide text-sm xl:text-base"
             >
               Services
-            </button>
-            <button 
-              onClick={() => scrollToSection('gallery')}
-              className="text-luxury-ivory hover:text-luxury-gold transition-smooth font-light tracking-wide text-sm xl:text-base"
-            >
-              Gallery
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
@@ -109,6 +109,12 @@ const Header = () => {
               About
             </button>
             <button 
+              onClick={() => scrollToSection('gallery')}
+              className="text-luxury-ivory hover:text-luxury-gold transition-smooth font-light tracking-wide text-left py-3 px-4 hover:bg-luxury-gold/10 rounded-md"
+            >
+              Gallery
+            </button>
+            <button 
               onClick={() => scrollToSection('stations')}
               className="text-luxury-ivory hover:text-luxury-gold transition-smooth font-light tracking-wide text-left py-3 px-4 hover:bg-luxury-gold/10 rounded-md"
             >
@@ -119,12 +125,6 @@ const Header = () => {
               className="text-luxury-ivory hover:text-luxury-gold transition-smooth font-light tracking-wide text-left py-3 px-4 hover:bg-luxury-gold/10 rounded-md"
             >
               Services
-            </button>
-            <button 
-              onClick={() => scrollToSection('gallery')}
-              className="text-luxury-ivory hover:text-luxury-gold transition-smooth font-light tracking-wide text-left py-3 px-4 hover:bg-luxury-gold/10 rounded-md"
-            >
-              Gallery
             </button>
             <button 
               onClick={() => scrollToSection('contact')}

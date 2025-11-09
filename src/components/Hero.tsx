@@ -23,7 +23,7 @@ const Hero = () => {
             <img 
               src={chefonicLogo} 
               alt="Chefonic Logo" 
-              className="w-24 h-24 xs:w-28 xs:h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain animate-[fadeIn_1.2s_ease-out] brightness-110 contrast-110"
+              className="w-32 h-32 xs:w-40 xs:h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 xl:w-72 xl:h-72 object-contain animate-[fadeIn_1.2s_ease-out] brightness-110 contrast-110"
             />
           </div>
           
@@ -54,7 +54,7 @@ const Hero = () => {
           </p>
           
           <p className="text-white text-xs xs:text-sm sm:text-base md:text-lg font-light tracking-wide sm:tracking-wider max-w-2xl mx-auto px-4">
-            Where Culinary Artistry Meets Live Performance
+            More than a service - it’s statement.
           </p>
           
           {/* CTA Buttons - Responsive layout */}
